@@ -1,0 +1,64 @@
+email:
+  sender: "SENDER_EMAIL"         # Gmail account that sends the digest
+  app_password: "APP_PASS"     # Gmail App Password (16 chars, spaces OK)
+  recipient: "msidd07@sas.upenn.edu"    # Where to receive the digest
+  subject_prefix: "Deal Digest"
+  send_hour: 7        # 7 AM
+  send_minute: 0
+  timezone: "US/Pacific"
+
+filters:
+  # EBITDA range (USD). Listings within this range pass.
+  ebitda_min: 2_000_000
+  ebitda_max: 10_000_000
+
+  # Asking price proxy — used when EBITDA is not listed
+  price_min: 5_000_000
+  price_max: 100_000_000
+
+  # Geography
+  country: "US"
+  states: []   # Empty = all US states. Example: ["CA", "TX", "NY"]
+
+  # Industry blocklist — empty = no filter
+  industries_exclude: []
+
+  # Franchise keyword blocklist (case-insensitive, checked in title + description)
+  franchise_keywords:
+    - "franchise"
+    - "franchisee"
+    - "royalty"
+    - "franchise fee"
+    - "franchise disclosure document"
+    - "FDD"
+
+sources:
+  bizbuysell:
+    enabled: true
+    base_url: "https://www.bizbuysell.com"
+    search_path: "/businesses-for-sale/"
+    params:
+      asking_price_from: 5000000
+      asking_price_to: 100000000
+      page_size: 100
+
+  bizquest:
+    enabled: true
+    base_url: "https://www.bizquest.com"
+    search_path: "/business-for-sale/"
+    params:
+      AskingPriceMin: 5000000
+      AskingPriceMax: 100000000
+
+  dealstream:
+    enabled: true
+    base_url: "https://dealstream.com"
+    search_path: "/deal/buy/"
+
+  acquire:
+    enabled: true
+    base_url: "https://acquire.com"
+    search_path: "/marketplace"
+    # Note: Acquire.com requires a free account. Set credentials below.
+    username: ""
+    password: ""
