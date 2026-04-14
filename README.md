@@ -7,7 +7,6 @@ Automated daily email of businesses for sale that match your acquisition criteri
 ### 1. Install dependencies
 
 ```bash
-cd mustafa_challenge
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
