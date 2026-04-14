@@ -1,5 +1,5 @@
 email:
-  sender: "SENDER_EMAIL"         # Gmail account that sends the digest
+  sender: "yourgmail.com"         # Gmail account that sends the digest
   app_password: "APP_PASS"     # Gmail App Password (16 chars, spaces OK)
   recipient: "msidd07@sas.upenn.edu"    # Where to receive the digest
   subject_prefix: "Deal Digest"
